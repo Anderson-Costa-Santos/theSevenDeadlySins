@@ -1,0 +1,28 @@
+const listaDePersonagens = document.querySelectorAll(".personagem");
+
+listaDePersonagens.forEach((personagem) => {
+
+    personagem.addEventListener("mouseenter", () => {
+        
+        const personagemSelecionado = document.querySelector(".selecionado")
+        
+        personagemSelecionado.classList.remove("selecionado")
+        
+        personagem.classList.add("selecionado")
+
+        const idSelecionado = personagem.attributes.id.value;
+
+        const imagemJogador1 = document.getElementById("personagem-jogador-1");
+
+        imagemJogador1.src = `./src/Imagens-TSDS/${idSelecionado}.png`;
+
+        const nomeJogador1 = document.getElementById("nome-jogador-1");
+
+        const nomeSelecionado = personagem.getAttribute("data-name");
+
+        nomeJogador1.innerHTML = nomeSelecionado;
+
+    })
+
+
+})
